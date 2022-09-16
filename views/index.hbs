@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apple News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <header class="text-center">
+            <h1 class="py-2 fs-1">Apple News</h1>
+            <h5 class="text-primary">All articles mentioning Apple, sorted by popular publishers first<h5>
+        </header>
+
+        <div class="row">
+            {{#each title}}
+            <div class="col-xl-4 col-md-6 news-card">
+                <div class="card mx-auto my-5">
+                    {{!-- urlToImage --}}
+                    <img src="{{this.urlToImage}}" class="news-card-img card-img-top" alt="...">
+                    <div class="card-body">
+                        {{!-- Title --}}
+                        <h5 class="news-card-title card-title">{{this.title}}
+                        </h5>
+                        {{!-- content(url) --}}
+                        <p class="news-card-content card-text">{{this.description}}<a href="{{this.url}}"
+                                class="see-more-link card-link">see more details</a></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item news-author">{{this.author}} <span
+                                class="text-secondary news-date">{{this.publishedAt}}</span></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            {{/each}}
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
